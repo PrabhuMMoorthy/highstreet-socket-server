@@ -9,7 +9,7 @@ class HelloHandler(tornado.web.RequestHandler):
 
 def main():
   tornado_app = tornado.web.Application([
-      ('/', HelloHandler),
+      (r"/", HelloHandler),
   ])
   server = tornado.httpserver.HTTPServer(tornado_app)
   port = int(os.environ.get("PORT", 5000))
