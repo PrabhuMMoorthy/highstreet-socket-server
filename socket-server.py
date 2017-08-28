@@ -7,7 +7,7 @@ import json
 
 class HelloHandler(tornado.web.RequestHandler):
   def get(self):
-    self.write('Hello from tornado')
+    self.write('Tornado - Running')
 
 class MyWebSocket(tornado.websocket.WebSocketHandler):
   clients = []
