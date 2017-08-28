@@ -1,14 +1,9 @@
-#!/usr/bin/env python
-
-from tornado.options import options, define, parse_command_line
 import tornado.httpserver
 import tornado.ioloop
 import tornado.web
 import tornado.wsgi
 import tornado.websocket
 import json
-
-define('port', type=int, default=9001)
 
 class HelloHandler(tornado.web.RequestHandler):
   def get(self):
@@ -19,7 +14,8 @@ def main():
       ('/', HelloHandler),
       ])
   server = tornado.httpserver.HTTPServer(tornado_app)
-  server.listen(options.port)
+  port = int(os.environ.get("PORT", 5000))
+  server.listen(port)
   tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == '__main__':
