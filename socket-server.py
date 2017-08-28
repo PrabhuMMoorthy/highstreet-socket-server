@@ -17,9 +17,6 @@ class HelloHandler(tornado.web.RequestHandler):
 class MyWebSocket(tornado.websocket.WebSocketHandler):
   clients = []
 
-  def check_origin(self, origin):
-    return True
-
   def open(self):
     # clients must be accessed through class object!!!
     MyWebSocket.clients.append(self)
