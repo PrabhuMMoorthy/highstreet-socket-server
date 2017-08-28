@@ -38,8 +38,8 @@ class MyWebSocket(tornado.websocket.WebSocketHandler):
 
 def main():
   tornado_app = tornado.web.Application([
-      ('/hello-tornado', HelloHandler),
-      ('/', MyWebSocket),
+      ('/', HelloHandler),
+      ('/socket', MyWebSocket),
       ])
   server = tornado.httpserver.HTTPServer(tornado_app)
   server.listen(options.port)
