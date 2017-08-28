@@ -2,9 +2,6 @@ import os
 import tornado.httpserver
 import tornado.ioloop
 import tornado.web
-import tornado.wsgi
-import tornado.websocket
-import json
 
 class HelloHandler(tornado.web.RequestHandler):
   def get(self):
@@ -13,7 +10,7 @@ class HelloHandler(tornado.web.RequestHandler):
 def main():
   tornado_app = tornado.web.Application([
       ('/', HelloHandler),
-      ])
+  ])
   server = tornado.httpserver.HTTPServer(tornado_app)
   port = int(os.environ.get("PORT", 5000))
   server.listen(port)
